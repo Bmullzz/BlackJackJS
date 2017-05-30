@@ -67,7 +67,7 @@ class Deck {
   createNewDeck(){ //creates a large deck made of eight 52 card decks
     let deck = [];
 
-    for (i = 0; i <= 8; i++){
+    for (let i = 0; i <= 8; i++){
       for (let rank = 1; rank <= 13; rank++){
         for (let suit = 1; suit <= 4; suit++){
           deck.push(new Card(rank, suit));

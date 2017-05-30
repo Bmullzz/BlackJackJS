@@ -26,15 +26,25 @@ describe("Deck Class", function(){
 
   describe("createNewDeck function", function(){
     let deck = new Deck();
-    
+    let card1 = deck.drawCard();
+    let card2 = deck.drawCard();
+    let card3 = deck.drawCard();
 
+    it("The 1st card should be King of Spades", function(){
+      expect(card1.cardToString()).toEqual("K" + "\u2660");
+    });
 
-  })
-  let deck1 = new Deck();
-  let deck2 = new Deck();
+    it("The 2nd card should be King of hearts", function(){
+      expect(card2.cardToString()).toEqual("K" + "\u2665");
+    });
 
-  it("createNewDeck Test", function(){
-    expect(deck.createNewDeck()).toEqual(10);
+    it("The 3rd card should be King of Clubs", function(){
+      expect(card3.cardToString()).toEqual("K" + "\u2663");
+    });
+
   });
+
+  
+
 
 });
