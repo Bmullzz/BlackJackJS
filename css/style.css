@@ -110,13 +110,32 @@ a:hover, a:active {
 /* page styles */
 article {margin: 5%;}
 article p { margin-bottom: 20px;}
-section {margin:10px 20px;}
-h1 {font-weight: bold;}
+section {margin:10px;}
+h1 {font-weight: bold; margin-left: 10px;}
 #main {
+
+    margin-left: 140px;
 }
 #display {
     border: 1px #aaa solid;
     padding:10px;
     min-height:300px;
     background:#eee;
+}
+#menu {
+    float: left;
+    width: 100px;
+    margin: 0 0 0 10px;
+}
+
+#menu ul {
+    list-style-type: none;
+}
+
+#menu li {
+    margin-bottom: 10px;
+}
+
+#menu button {
+    width: 120px;
 }

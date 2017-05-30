@@ -1,5 +1,6 @@
 " use strict ";
 /*jshint esversion: 6 */
+var display = document.getElementById("display");
 
 class Card {
   constructor(rank, suit) {
@@ -18,21 +19,22 @@ class Card {
   }
 
   getCardNumber(){
-    if (1 < this.rank <= 10){
-      return this.rank;
+    if (this.rank == 1){
+      return "A";
     }
-    else if (this.rank === 11){
+    else if (this.rank == 11){
       return "J";
     }
-    else if (this.rank === 12){
+    else if (this.rank == 12){
       return "Q";
     }
-    else if (this.rank === 13){
+    else if (this.rank == 13){
       return "K";
     }
-    else{
-       return "A";
+    else if (1 < this.rank < 11){
+      return this.rank;
     }
+
   }
 
   getCardSuit() {
@@ -50,6 +52,10 @@ class Card {
     }
   }
 
+  cardToString(){
+    return this.getCardNumber() + "" + this.getCardSuit();
+  }
+
 }
 
 class Deck {
@@ -59,10 +65,10 @@ class Deck {
   }
 
   createNewDeck(){
-    var deck = [];
+    let deck = [];
 
-    for (var rank = 1; rank <= 13; rank++){
-      for (var suit = 1; suit <= 4; suit++){
+    for (let rank = 1; rank <= 13; rank++){
+      for (let suit = 1; suit <= 4; suit++){
         deck.push(new Card(rank, suit));
       }
     }
@@ -71,13 +77,50 @@ class Deck {
   }
 
   shuffleDeck(){
-    for (var i = 1; i < this.deck.length; i++){
-      var j = Math.floor(Math.random() * ) + 1
+    for (let i = this.deck.length - 1; i > 0; i--){
+      let j = Math.floor(Math.random() * i) + 1;
+      let hold = this.deck[i];
+      this.deck[i] = this.deck[j];
+      this.deck[j] = hold;
     }
+
+    //return this.deck.toString();
+  }
+
+  toString(){
+    let result = "";
+
+    for (let i = 0; i < this.deck.length; i++){
+      result += "[" + this.deck[i].cardToString() + "]" + " ";
+    }
+
+    return result;
   }
 
 }
+
+class Dealer {
+  
+
+}
+
+class Player {
+
+}
+
+function displayDeck(){
+  var freshDeck = new Deck();
+  var displayDeck = "This is the new deck " + freshDeck.toString() + "</br>" + "</br>";
+  freshDeck.shuffleDeck();
+  var displayShuffledDeck = "This is the shuffled " + freshDeck.toString();
+
+  display.innerHTML = displayDeck + displayShuffledDeck ;
+}
+
+// this.init = function(){
 //
+//   displayDeck();
+// }
 // class Player {
 //
 //   setHand(){}
