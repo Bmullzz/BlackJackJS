@@ -64,12 +64,14 @@ class Deck {
     this.deck = this.createNewDeck();
   }
 
-  createNewDeck(){
+  createNewDeck(){ //creates a large deck made of eight 52 card decks
     let deck = [];
 
-    for (let rank = 1; rank <= 13; rank++){
-      for (let suit = 1; suit <= 4; suit++){
-        deck.push(new Card(rank, suit));
+    for (i = 0; i <= 8; i++){
+      for (let rank = 1; rank <= 13; rank++){
+        for (let suit = 1; suit <= 4; suit++){
+          deck.push(new Card(rank, suit));
+        }
       }
     }
 
@@ -87,7 +89,11 @@ class Deck {
     //return this.deck.toString();
   }
 
-  toString(){
+  drawCard(){
+    return this.deck.pop();
+  }
+
+  toString(){ //converts entire deck toString
     let result = "";
 
     for (let i = 0; i < this.deck.length; i++){
@@ -100,7 +106,7 @@ class Deck {
 }
 
 class Dealer {
-  
+
 
 }
 
@@ -115,6 +121,8 @@ function displayDeck(){
   var displayShuffledDeck = "This is the shuffled " + freshDeck.toString();
 
   display.innerHTML = displayDeck + displayShuffledDeck ;
+
+
 }
 
 // this.init = function(){
