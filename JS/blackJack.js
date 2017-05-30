@@ -1,6 +1,10 @@
 " use strict ";
 /*jshint esversion: 6 */
 var display = document.getElementById("display");
+var diamonds = "\u2666]";
+var clubs = "\u2663]";
+var hearts = "\u2665]";
+var spades = "\u2660]";
 
 class Card {
   constructor(rank, suit) {
@@ -39,16 +43,16 @@ class Card {
 
   getCardSuit() {
     if (this.suit === 1) {
-      return "\u2666]"; //Diamond
+      return diamonds; //Diamonds
     }
     else if (this.suit === 2) {
-      return "\u2663]"; //clubs
+      return clubs; //clubs
     }
     else if (this.suit === 3) {
-      return "\u2665]"; //hearts
+      return hearts; //hearts
     }
     else {
-      return "\u2660]"; //spades
+      return spades; //spades
     }
   }
 
@@ -59,7 +63,6 @@ class Card {
 }
 
 class Deck {
-
   constructor(){
     this.deck = this.createNewDeck();
   }
@@ -97,7 +100,7 @@ class Deck {
     let result = "";
 
     for (let i = 0; i < this.deck.length; i++){
-      result += /*"[" + */this.deck[i].cardToString() /*+ "]"*/ + " ";
+      result += this.deck[i].cardToString() + " ";
     }
 
     return result;
@@ -106,49 +109,49 @@ class Deck {
 }
 
 class Dealer {
-  
+
+  constructor(){
+    this.dealerHand = [];
+  }
+
+  dealerHand(){ //apparently this is not a function
+    let newCard = freshDeck.drawCard();
+    this.dealerHand.push(newCard);
+  }
+
+  dealerToString(){
+    let result = "";
+
+    for (let i = 0; i < this.dealerHand.length; i++){
+      result += this.dealerHand[i].cardToString();
+    }
+
+    return result;
+  }
 
 }
 
 class Player {
 
+  playerHand(){}
+
 }
 
 function displayDeck(){
   var freshDeck = new Deck();
+  //var dealer = new Dealer();
+   //var dealHand = "This is the dealer's hand " + dealer.dealerHand() + "</br>";
   var displayDeck = "This is the new deck " + freshDeck.toString() + "</br>" + "</br>";
   freshDeck.shuffleDeck();
   var displayShuffledDeck = "This is the shuffled " + freshDeck.toString();
 
   display.innerHTML = displayDeck + displayShuffledDeck ;
-
-
 }
 
-// this.init = function(){
-//
-//   displayDeck();
-// }
-// class Player {
-//
-//   setHand(){}
-//
-//   getHand(){}
-//
-//   getHandValue(){}
-//
-// }
-//
-// class Dealer {
-//
-// }
+function displayHands(){
+  var newDeck = new Deck();
+  var newHand = new Dealer();
+  newHand.dealerHand();
+  var displayDealerHand = "Dealer Hand: " + newHand.dealerToString();
 
-
-
-// function shuffleDeck(){
-//
-// }
-//
-// function dealTwoCards(){}
-//
-// function dealOneCard(){}
+}

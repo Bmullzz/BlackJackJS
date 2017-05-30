@@ -44,7 +44,9 @@ describe("Deck Class", function(){
 
   });
 
-
-
-
 });
+
+describe("Dealer Class", function(){
+  
+
+})
