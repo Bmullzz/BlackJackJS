@@ -20,35 +20,35 @@ class Card {
 
   getCardNumber(){
     if (this.rank == 1){
-      return "A";
+      return "[A";
     }
     else if (this.rank == 11){
-      return "J";
+      return "[J";
     }
     else if (this.rank == 12){
-      return "Q";
+      return "[Q";
     }
     else if (this.rank == 13){
-      return "K";
+      return "[K";
     }
     else if (1 < this.rank < 11){
-      return this.rank;
+      return "[" + this.rank;
     }
 
   }
 
   getCardSuit() {
     if (this.suit === 1) {
-      return "\u2666"; //Diamond
+      return "\u2666]"; //Diamond
     }
     else if (this.suit === 2) {
-      return "\u2663"; //clubs
+      return "\u2663]"; //clubs
     }
     else if (this.suit === 3) {
-      return "\u2665"; //hearts
+      return "\u2665]"; //hearts
     }
     else {
-      return "\u2660"; //spades
+      return "\u2660]"; //spades
     }
   }
 
@@ -79,8 +79,8 @@ class Deck {
   }
 
   shuffleDeck(){
-    for (let i = this.deck.length - 1; i > 0; i--){
-      let j = Math.floor(Math.random() * i) + 1;
+    for (let i = this.deck.length - 1; i >= 0; i--){
+      let j = Math.floor(Math.random() * 10) + 1;
       let hold = this.deck[i];
       this.deck[i] = this.deck[j];
       this.deck[j] = hold;
@@ -97,7 +97,7 @@ class Deck {
     let result = "";
 
     for (let i = 0; i < this.deck.length; i++){
-      result += "[" + this.deck[i].cardToString() + "]" + " ";
+      result += /*"[" + */this.deck[i].cardToString() /*+ "]"*/ + " ";
     }
 
     return result;
@@ -106,7 +106,7 @@ class Deck {
 }
 
 class Dealer {
-
+  
 
 }
 

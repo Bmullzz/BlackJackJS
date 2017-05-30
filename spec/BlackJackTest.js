@@ -9,15 +9,15 @@ describe("Card class", function () {
   });
 
   it("getCardNumber Test", function(){
-    expect(card.getCardNumber()).toEqual("Q");
+    expect(card.getCardNumber()).toEqual("[Q");
   });
 
   it("getCardSuit Test", function(){
-    expect(card.getCardSuit()).toEqual("\u2663");
+    expect(card.getCardSuit()).toEqual("\u2663]");
   });
 
   it("cardToString Test", function(){
-    expect(card.cardToString()).toEqual("Q" + "\u2663");
+    expect(card.cardToString()).toEqual("[Q" + "\u2663]");
   });
 
 });
@@ -31,20 +31,20 @@ describe("Deck Class", function(){
     let card3 = deck.drawCard();
 
     it("The 1st card should be King of Spades", function(){
-      expect(card1.cardToString()).toEqual("K" + "\u2660");
+      expect(card1.cardToString()).toEqual("[K" + "\u2660]");
     });
 
     it("The 2nd card should be King of hearts", function(){
-      expect(card2.cardToString()).toEqual("K" + "\u2665");
+      expect(card2.cardToString()).toEqual("[K" + "\u2665]");
     });
 
     it("The 3rd card should be King of Clubs", function(){
-      expect(card3.cardToString()).toEqual("K" + "\u2663");
+      expect(card3.cardToString()).toEqual("[K" + "\u2663]");
     });
 
   });
 
-  
+
 
 
 });
